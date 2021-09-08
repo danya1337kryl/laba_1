@@ -1,0 +1,45 @@
+package com.company;
+/*
+* ЧТО-ТО БЛИЗКОЕ К ПРАВДЕ, НЕ МОГУ ПОНЯТЬ ПОЧЕМУ НЕ СОРТИРУЕТ МЕНЯЕТ МЕСТАМИ
+* */
+public class numb5 {
+    public static void main(String[] args) {
+        int i,j,k;
+        int n =5;
+        int array[][] = new int[n][n];
+        for ( i = 0; i < n; i++) {
+            System.out.println();
+            for ( j = 0; j < n; j++) {
+                double a = Math.random() * 50 + 1;
+                array[i][j] = (int) Math.round(a);
+                System.out.print(array[i][j] + "\t");
+            }
+        }
+
+        System.out.println();
+        int min;
+        for ( i = 0; i < n; i++) {
+            for ( j = 0; j < n; j++) {
+              for ( k = 1; k < n; k++){
+                  if (array[i][j]>array[i][k]){
+                      min = k;
+                      if (j == k){
+                          int s = array[i][i];
+                          array[i][i] = array[i][min];
+                          array[i][min] = s;
+                      }
+                  }
+
+              }
+
+            }
+        }
+
+        for ( i = 0; i < n; i++) {
+            System.out.println();
+            for ( j = 0; j < n; j++) {
+                System.out.print(array[i][j] + "\t");
+            }
+        }
+    }
+}
